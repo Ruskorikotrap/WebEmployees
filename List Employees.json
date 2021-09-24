@@ -1,0 +1,23 @@
+[
+  {
+  "PersonnelNumber": 132,
+  "StaffMember": false,
+  "FullName": "Piter Parker",
+  "Gender": "Male",
+  "DateOfBirth": "2021-09-07"
+  },
+  {
+    "PersonnelNumber": 0,
+    "StaffMember": false,
+    "FullName": "Pavel Ivanov",
+    "Gender": "Male",
+    "DateOfBirth": "2021-09-07"
+  },
+  {
+    "PersonnelNumber": 10003,
+    "StaffMember": true,
+    "FullName": "Maria Petrovna",
+    "Gender": "Famele",
+    "DateOfBirth": "2021-09-07"
+  }
+]
