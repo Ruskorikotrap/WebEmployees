@@ -1,0 +1,52 @@
+﻿@using WebEmployees.Domain.Entities
+@model IEnumerable<Employee>
+@{ViewData["Title"] = "Employees";}
+<h1>Employees</h1>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.PersonnelNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.StaffMember)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FullName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Gender)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateOfBirth)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.PersonnelNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StaffMember)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FullName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Gender)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateOfBirth)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                @Html.ActionLink("Delete", "Delete", null, new { id = item.Id })
+
+
+            </td>
+        </tr>
+    }
+
+</table>

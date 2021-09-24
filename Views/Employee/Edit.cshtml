@@ -1,0 +1,47 @@
+﻿@using WebEmployees.Domain.Entities
+@model Employee
+@{ViewData["Title"] = "Edit";}
+<h1>Edit Employee</h1>
+<div class="form-horizontal">
+    <form asp-area="" asp-controller="Employee" asp-action="Edit" method="post">
+        <div asp-validation-summary="All"></div>
+        <div>
+            <label asp-for="StaffMember"></label>
+            <input asp-for="StaffMember" />
+            @*<input name="CheckBoxStaff" asp-for="StaffMember" onclick="clickCheckBox(this.form)" />*@
+            <span asp-validation-for="StaffMember"></span>
+        </div>
+        <div>
+            <label asp-for="PersonnelNumber"></label>
+            <input name="PersonnelNumber" asp-for="PersonnelNumber" />
+            <span asp-validation-for="PersonnelNumber"></span>
+        </div>
+
+        <div>
+            <label asp-for="FullName"></label>
+            <input asp-for="FullName" />
+            <span asp-validation-for="FullName"></span>
+        </div>
+        <div>
+            <label asp-for="Gender"></label>
+            @Html.DropDownListFor(o => o.Gender, Enum.GetValues(typeof(Genders)).Cast<Genders>().Select(x => new SelectListItem { Text = x.ToString(), Value = ((int)x).ToString() }))
+        </div>
+        <div>
+            <label asp-for="DateOfBirth"></label>
+            <input asp-for="DateOfBirth" />
+            <span asp-validation-for="DateOfBirth"></span>
+        </div>
+        <div>
+            <input type="submit" value="Edit" />
+        </div>
+
+    </form>
+</div>
+
+@*<script>
+        function clickCheckBox(f) {
+
+            if (f.CheckBoxStaff.checked) f.PersonnelNumber.disabled = 0
+            else f.PersonnelNumber.disabled = 1
+        }
+    </script>*@

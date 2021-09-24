@@ -1,0 +1,65 @@
+﻿
+@model WebEmployees.Domain.Entities.Employee
+@using WebEmployees.Domain.Entities
+<div>
+    @{ViewData["Title"] = "Home";}
+    <h1>Home Page</h1>
+    <div class="div-box">
+        <a class="btn btn-outline-success" data-toggle="modal" data-target=".bootstrapmodal"><span class="glyphicon glyphicon-eye-open"></span>Create</a>
+        <div class="modal fade bootstrapmodal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        Create Employee
+                    </div>
+                    <div class="modal-body">
+                        <form asp-area="" asp-controller="Employee" asp-action="Create" method="post">
+                            <div asp-validation-summary="All"></div>
+                            <div>
+                                <label asp-for="StaffMember"></label>
+                                @*<input name="CheckBoxStaff" asp-for="StaffMember" onclick="clickCheckBox(this.form)" />*@
+                                <input asp-for="StaffMember" />
+                                <span asp-validation-for="StaffMember"></span>
+                            </div>
+                            <div>
+                                <label asp-for="PersonnelNumber"></label>
+                                <input name="PersonnelNumber" asp-for="PersonnelNumber" />
+                                <span asp-validation-for="PersonnelNumber"></span>
+                            </div>
+
+                            <div>
+                                <label asp-for="FullName"></label>
+                                <input asp-for="FullName" />
+                                <span asp-validation-for="FullName"></span>
+                            </div>
+                            <div>
+                                <label asp-for="Gender"></label>
+                                @Html.DropDownListFor(o => o.Gender, Enum.GetValues(typeof(Genders)).Cast<Genders>().Select(x => new SelectListItem { Text = x.ToString(), Value = ((int)x).ToString() }))
+                            </div>
+                            <div>
+                                <label asp-for="DateOfBirth"></label>
+                                <input asp-for="DateOfBirth" />
+                                <span asp-validation-for="DateOfBirth"></span>
+                            </div>
+                            <div>
+                                <input type="submit" value="Create" />
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a class="btn btn-outline-success" asp-controller="Employee" asp-action="ListEmployees" ><span class="glyphicon glyphicon-eye-open"></span>Edit Employees</a>
+        <a class="btn btn-outline-success" asp-controller="File" asp-action="Upload" ><span class="glyphicon glyphicon-eye-open"></span>Upload File</a>
+
+    </div>
+</div>
+
+@*<script>
+    function clickCheckBox(f) {
+
+        if (f.CheckBoxStaff.checked) f.PersonnelNumber.disabled = 0
+        else f.PersonnelNumber.disabled = 1
+    }
+</script>*@
